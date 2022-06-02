@@ -20,7 +20,7 @@ const Series = () => {
     isLoading,
     error,
   } = useFetch(
-    `https://api.themoviedb.org/3/discover/tv?api_key=8802ce576b2e68c5d93fa88c487234f7&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`,genreforURL);
+    `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`,genreforURL);
 
   useEffect(()=>{
     return ()=>{

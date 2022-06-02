@@ -8,9 +8,12 @@ import "./Trending.css";
 const Trending = () => {
   const { page, setPage } = useContext(PageContext);
 
-  const { content, error } = useFetch(
-    `https://api.themoviedb.org/3/trending/all/day?api_key=8802ce576b2e68c5d93fa88c487234f7&page=${page}`
+  const { content,isLoading, error } = useFetch(
+    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
   );
+
+
+  if(isLoading) return <h3>Loading...</h3>
 
   if(error) return <h1>{error}</h1>
 

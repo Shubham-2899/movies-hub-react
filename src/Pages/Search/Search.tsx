@@ -23,7 +23,7 @@ const Search = () => {
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/search/${
           type ? "tv" : "movie"
-        }?api_key=8802ce576b2e68c5d93fa88c487234f7&language=en-US&query=${searchText}&page=${page}&include_adult=false`
+        }?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
       );
       setContent(data.results);
       setNumOfPages(data.total_pages);
